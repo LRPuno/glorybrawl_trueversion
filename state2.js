@@ -372,6 +372,7 @@ function platformMover (player,ledge) {
 function deathOne(victim, killer) {
   victim.kill();
   game.state.start('state3');
+  stick.destroy();
 }
 
 function deathTwo(victim,killer) {
