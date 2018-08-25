@@ -13,6 +13,7 @@ brawl.state2.prototype= {
         game.load.image('shield','assets/shield2.png');
         game.load.image('fallingSpike',"assets/newSpikes.png");
         game.load.image('enemy','assets/trumpface.png');
+        game.load.image('bars','assets/black.png');
         game.load.image('invisibleSpikes','assets/invisibleFloorSpikes.png');
         game.load.spritesheet('dude', 'assets/white.png',47,50,19);
         game.load.spritesheet('fire','assets/spritefire.png',150,500);
@@ -28,9 +29,9 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0, 0, 250, 'dpad');
-        stick.scale= 0.65;
-        stick.alignBottomRight(-15);
+        stick = pad.addDPad(900,game.world.centerY, 250, 'dpad');
+        stick.scale= 1.0;
+        //stick.alignBottomRight(-20);
 
         
         //Adding Music Functions
@@ -44,6 +45,14 @@ brawl.state2.prototype= {
         
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; //Scales our Game
         game.add.sprite(0, 0, 'sky');   // A simple background for our game
+        
+        //Fake Black Image to hold the controller
+        black = game.add.group();
+        black.enableBody=true;
+        var blackBar=black.create(790,0,'bars');
+        blackBar.body.immovable=true;
+
+        
 
         //GROUND PLATFORM FOR MAP
         platforms = game.add.group(); // The platforms group contains the ground and the 2 ledges we can jump on
@@ -63,7 +72,7 @@ brawl.state2.prototype= {
 
         //Ledges in loop for randomization.
         for (var i=0;i<8;i++) {
-            var randomNumber=Math.floor((Math.random() * 798) + 1);
+            var randomNumber=Math.floor((Math.random() * 600) + 1);
             var randomNumber2=Math.floor((Math.random() * 500) + 1);
             if (i<4) {
             var randomNumber3=Math.floor((Math.random() * 60) + 1);
@@ -270,6 +279,12 @@ brawl.state2.prototype= {
         game.physics.arcade.collide(wing, platforms);
         game.physics.arcade.collide(shield, platforms);
         game.physics.arcade.collide(enemy,platforms);
+        //
+        game.physics.arcade.collide(enemy,black);
+        game.physics.arcade.collide(player,black);
+        game.physics.arcade.collide(ledge,black);
+        game.physics.arcade.collide(platforms,black);
+
 
         //Checks to see if overlap in assets.
         //game.physics.arcade.overlap(weapon.bullets, platforms, bulletHitPlatform, null, this);
@@ -282,9 +297,13 @@ brawl.state2.prototype= {
         
         game.physics.arcade.overlap(wing, spikes, deathTwo, null, this);
         game.physics.arcade.overlap(shield, spikes, deathTwo, null, this);
+
+        game.physics.arcade.overlap(black, wing, deathTwo, null, this);
+        game.physics.arcade.overlap(black, shield, deathTwo, null, this);
         
         game.physics.arcade.overlap(fallingSpikes, ledge, deathTwo, null, this);
         game.physics.arcade.overlap(fallingSpikes, platforms, deathTwo, null, this);
+
 
 
         // Virtual Joystick

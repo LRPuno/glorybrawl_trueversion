@@ -1,20 +1,19 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS)
+var game = new Phaser.Game(1000, 600, Phaser.CANVAS)
 
 var player, enemy, platforms, ledge, cursors, wing, shield, spikes, roofSpikes, fire, fallingSpikes;
 var runFastX = false, jumpHigherX = false, stunGunWeapon = false;
 var timer;
 var smack;
 var music;
-var music1;
 // Virtual Joystick
 
 var pad;
 var stick;
+var black;
+
 //Forces the next state of the game with a button that is not coded in phaser.
-var forceGameStart4=false;
-var trumpQuotes;
 var total = 0;
-var highestTotalLocal=0;
+
 
 //////////////////////////////////////////////////Story///////////////////////////////////
 var content = [
@@ -23,7 +22,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "You have been selected as a contestant",
   "The goal is to survive as long as possible.",
-  "Test Version 8. Welcome to Glory Brawl",
+  "Test Version 9. Welcome to Glory Brawl",
 ];
 
 var line = [];
@@ -82,9 +81,7 @@ game.state.add('state1',brawl.state1);
 game.state.add('state2',brawl.state2);
 game.state.add('state3',brawl.state3);
 game.state.start('state1');
-//game.state.start('state2');
-//game.state.start('state3');
-//game.state.start('state4');
+
 ////////////////////////////////////////////////////////////////PHASER 2 GAME (GLORY_BRAWL)////////////////////////////////////////////////////////////////
 
 /*
