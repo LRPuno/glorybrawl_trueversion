@@ -355,7 +355,7 @@ brawl.state2.prototype= {
                     player.animations.play('right');
                 }
             }
-            else if (stick.direction === Phaser.UP)
+            else if (stick.direction === Phaser.UP && player.body.touching.down && (hitPlatform || hitLedge))
             {
                 player.body.velocity.y = -250;
             if (jumpHigherX) {
