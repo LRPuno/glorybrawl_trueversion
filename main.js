@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1000, 600, Phaser.CANVAS)
+var game = new Phaser.Game(1200, 600, Phaser.CANVAS)
 
 var player, enemy, platforms, ledge, cursors, wing, shield, spikes, roofSpikes, fire, fallingSpikes;
 var runFastX = false, jumpHigherX = false, stunGunWeapon = false;
@@ -22,7 +22,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "You have been selected as a contestant",
   "The goal is to survive as long as possible.",
-  "Test Version 9. Welcome to Glory Brawl",
+  "Test Version 10. Welcome to Glory Brawl",
 ];
 
 var line = [];
