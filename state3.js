@@ -11,7 +11,7 @@ brawl.state3.prototype= {
 
         // Score
 
-        text = game.add.text(260, 310, "Your Score: "+total);
+        text = game.add.text(290, 270, "Survived For: "+total+" Seconds");
         text.anchor.set(0.295);
         text.align = 'center';
 

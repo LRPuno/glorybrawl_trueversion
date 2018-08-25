@@ -15,7 +15,7 @@ brawl.state1.prototype= {
         console.log("state1");
 
         //Adding Cool Looking Text
-        text = game.add.text(40, 79, '', { font: "15px Arial", fill: "#19de65" });
+        text = game.add.text(40, 79, '', { font: "20px Arial", fill: "#19de65" });
         nextLine();
         
         //Skip Written Already.
@@ -25,7 +25,7 @@ brawl.state1.prototype= {
         text2.font = 'Arial';
         text2.fontSize = 15;
         text2.fill= "#19de65";
-        //text2.fontWeight = 'bold';
+        text2.fontWeight = 'bold';
 
         /*
         //Loop Music

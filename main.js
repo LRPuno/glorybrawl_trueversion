@@ -18,13 +18,11 @@ var highestTotalLocal=0;
 
 //////////////////////////////////////////////////Story///////////////////////////////////
 var content = [
-  "It's the year 2049, Donald Trump found the secret to immortality.",
-  "He has seized all power and killed all of his enemies.",
-  "In an attempt to calm down the masses.",
-  "Trump created a game show.",
-  "A game show that uses prisoners as contestants",
-  "You've been selected as a contestant.",
-  "Arrow Keys to Move.",
+  "In the future, Donald Trump has seized all power.",
+  "For his amusement, Trump creates a game show.",
+  "A game show that uses prisoners as contestants.",
+  "The goal is to survive as long as possible.",
+  "You are Jack Smith and you have been selected as a contestant.",
   "Welcome to Glory Brawl.",
 ];
 
