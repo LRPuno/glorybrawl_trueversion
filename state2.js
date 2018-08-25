@@ -28,7 +28,7 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0, 0, 600, 'dpad');
+        stick = pad.addDPad(0, 0, 250, 'dpad');
         stick.scale= 0.65;
         stick.alignBottomRight(-15);
 
@@ -371,8 +371,8 @@ function platformMover (player,ledge) {
 //Removing Elements
 function deathOne(victim, killer) {
   victim.kill();
-  game.state.start('state3');
   stick.destroy();
+  game.state.start('state3');
 }
 
 function deathTwo(victim,killer) {
