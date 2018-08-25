@@ -28,9 +28,9 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0, 0, 200, 'dpad');
-        stick.scale= 0.7;
-        stick.alignBottomRight();
+        stick = pad.addDPad(0, 0, 100, 'dpad');
+        stick.scale= 0.5;
+        stick.alignBottomRight(0);
 
         
         //Adding Music Functions
@@ -291,6 +291,7 @@ brawl.state2.prototype= {
         if (stick.isDown)
         {
             player.body.velocity.x = 0;
+            player.frame=8;
 
             if (stick.direction === Phaser.LEFT)
             {
