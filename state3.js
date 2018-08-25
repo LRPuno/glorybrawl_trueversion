@@ -6,13 +6,13 @@ brawl.state3.prototype= {
     create: function (){
         
         stick.destroy();
-        game.add.sprite(200,250, 'background-three');
+        game.add.sprite(200,200, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         console.log("state3");
 
         // Score
 
-        text = game.add.text(290, 270, "You Survived: "+total+" Seconds");
+        text = game.add.text(300, 240, "You Survived: "+total+" Seconds");
         text.anchor.set(0.295);
         text.align = 'center';
 
