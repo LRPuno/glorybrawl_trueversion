@@ -28,8 +28,8 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0, 0, 350, 'dpad');
-        stick.scale= 0.60;
+        stick = pad.addDPad(0, 0, 600, 'dpad');
+        stick.scale= 0.65;
         stick.alignBottomRight(-15);
 
         
