@@ -371,13 +371,13 @@ function jumpHigher (player,wing) {
 
 function platformConundrum (player,platforms) {
     if (platforms.body.touching.left) {
-        platforms.body.velocity.x = -50;
-      }
-      else if (platforms.body.touching.right) {
         platforms.body.velocity.x = 50;
       }
+      else if (platforms.body.touching.right) {
+        platforms.body.velocity.x = -50;
+      }
       else if (platforms.body.touching.up) {
-        platforms.body.velocity.y = -50;
+        platforms.body.velocity.y = -150;
       }
       else if (platforms.body.touching.down) {
         platforms.body.velocity.y=50;
