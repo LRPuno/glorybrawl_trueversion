@@ -28,9 +28,9 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0, 0, 200, 'dpad');
-        stick.scale= 0.5;
-        stick.alignBottomRight(-10);
+        stick = pad.addDPad(0, 0, 250, 'dpad');
+        stick.scale= 0.70;
+        stick.alignBottomRight(-15);
 
         
         //Adding Music Functions
