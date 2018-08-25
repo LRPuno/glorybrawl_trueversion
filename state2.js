@@ -60,10 +60,9 @@ brawl.state2.prototype= {
 
         //MAJOR LEDGE (quantity: one)
         var groundThree = platforms.create(200, 300, 'ground');
-        groundThree.body.immovable = true;
-        groundThree.body.velocity.setTo(10,100);
+        groundThree.body.velocity.setTo(30,100);
         groundThree.body.collideWorldBounds=true;
-        groundThree.body.bounce.set(.5);
+        groundThree.body.bounce.set(1.0);
 
         // MINOR LEDGES (MOVING; Quantity: 8)
         ledge = game.add.group();
@@ -270,7 +269,7 @@ brawl.state2.prototype= {
     },
     update: function (){
             //  Collide the player and the stars with the platforms
-        var hitPlatform = game.physics.arcade.collide(player, platforms);
+        var hitPlatform = game.physics.arcade.collide(player, platforms,platformConundrum);
         var hitLedge=game.physics.arcade.collide(player,ledge, platformMover);
         game.physics.arcade.collide(wing, ledge);
         game.physics.arcade.collide(shield, ledge);
@@ -368,6 +367,22 @@ function runFaster (player,shield) {
 function jumpHigher (player,wing) {
     jumpHigherX=true;
     wing.kill();
+}
+
+function platformConundrum (player,platforms) {
+    if (platforms.body.touching.left) {
+        platforms.body.velocity.x = -600;
+      }
+      else if (platforms.body.touching.right) {
+        platforms.body.velocity.x = 600;
+      }
+      else if (platforms.body.touching.up) {
+        platforms.body.velocity.y = -150;
+      }
+      else if (platforms.body.touching.down) {
+        platforms.body.velocity.y=300;
+      }
+      smack.play();
 }
 
 //Platfrom Moving Mechanics
