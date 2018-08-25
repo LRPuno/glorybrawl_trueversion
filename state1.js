@@ -27,18 +27,8 @@ brawl.state1.prototype= {
         text2.fill= "#19de65";
         text2.fontWeight = 'bold';
 
-        /*
-        //Loop Music
-        musicOne = game.add.audio('rock');
-        musicOne.play();
-        */
     },
     update: function (){
-        /*
-        if(game.input.keyboard.isDown(Phaser.Keyboard.TWO)) {
-            musicOne.stop(); 
-        }
-        */
        if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) ||  this.game.input.activePointer.isDown)
       {
         game.state.start('state2');
