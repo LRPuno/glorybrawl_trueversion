@@ -62,7 +62,7 @@ brawl.state2.prototype= {
         var groundThree = platforms.create(200, 300, 'ground');
         groundThree.body.velocity.setTo(30,100);
         groundThree.body.collideWorldBounds=true;
-        groundThree.body.bounce.set(1.0);
+        groundThree.body.bounce.set(.5);
 
         // MINOR LEDGES (MOVING; Quantity: 8)
         ledge = game.add.group();
@@ -380,7 +380,7 @@ function platformConundrum (player,platforms) {
         platforms.body.velocity.y = -150;
       }
       else if (platforms.body.touching.down) {
-        platforms.body.velocity.y=50;
+        platforms.body.velocity.y=-100;
       }
       smack.play();
 }

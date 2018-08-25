@@ -20,9 +20,10 @@ var content = [
   "In the future, Donald Trump has seized all power.",
   "To fund his endless wars, Trump creates a game show.",
   "A game show that uses prisoners as contestants.",
-  "You have been selected as a contestant",
+  "You have been selected as a contestant.",
   "The goal is to survive as long as possible.",
-  "Test Version 16. Welcome to Glory Brawl",
+  "Test Version 17. Welcome to Glory Brawl.",
+  "Use the Joystick to Move."
 ];
 
 var line = [];

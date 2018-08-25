@@ -8,22 +8,22 @@ brawl.state1.prototype= {
     create: function (){
 
         //Trump Background
-        game.add.sprite(200,250,'background-one');
+        game.add.sprite(500,250,'background-one');
         //Scaling
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         console.log("state1");
 
         //Adding Cool Looking Text
-        text = game.add.text(40, 79, '', { font: "20px Arial", fill: "#19de65" });
+        text = game.add.text(40, 50, '', { font: "20px Arial", fill: "#19de65" });
         nextLine();
         
         //Skip Written Already.
-        var text2 = game.add.text(600,200,"Tap Screen to Skip/Play")
+        var text2 = game.add.text(900,200,"Tap Screen to Skip/Play")
 
         //	Font style
         text2.font = 'Arial';
-        text2.fontSize = 15;
+        text2.fontSize = 20;
         text2.fill= "#19de65";
         text2.fontWeight = 'bold';
 
