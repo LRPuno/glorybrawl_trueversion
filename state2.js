@@ -29,7 +29,8 @@ brawl.state2.prototype= {
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
         stick = pad.addDPad(0, 0, 200, 'dpad');
-        stick.alignBottomLeft(0);
+        stick.scale= 0.7;
+        stick.alignBottomRight();
 
         
         //Adding Music Functions
@@ -285,50 +286,6 @@ brawl.state2.prototype= {
         game.physics.arcade.overlap(fallingSpikes, ledge, deathTwo, null, this);
         game.physics.arcade.overlap(fallingSpikes, platforms, deathTwo, null, this);
 
-        //  Reset the players velocity (movement)
-        player.body.velocity.x = 0;
-
-        if (cursors.left.isDown) {
-            player.body.velocity.x = -200;
-            player.animations.play('left');
-
-            if (runFastX) {
-                player.body.velocity.x = -400;
-                player.animations.play('left');
-            }
-        }
-        else if (cursors.right.isDown) {
-            player.body.velocity.x = 200;
-            player.animations.play('right');
-
-            if (runFastX) {
-                player.body.velocity.x = 400;
-                player.animations.play('right');
-            }
-        }
-
-        // Function when you want to descend
-        else if (cursors.down.isDown) {
-
-                player.body.velocity.y = 200;
-
-        }
-        
-        else
-        {
-            //  Stand still
-            player.animations.stop();
-            player.frame = 8;
-        }
-
-        //  Allow the player to jump if they are touching the ground.
-        if (cursors.up.isDown && player.body.touching.down && (hitPlatform || hitLedge))
-        {
-            player.body.velocity.y = -250;
-            if (jumpHigherX) {
-                player.body.velocity.y = -425;
-            }
-        }
 
         // Virtual Joystick
         if (stick.isDown)

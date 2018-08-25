@@ -83,7 +83,6 @@ function nextWord() {
 game.state.add('state1',brawl.state1);
 game.state.add('state2',brawl.state2);
 game.state.add('state3',brawl.state3);
-game.state.add('state4',brawl.state4);
 game.state.start('state1');
 //game.state.start('state2');
 //game.state.start('state3');

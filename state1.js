@@ -19,7 +19,7 @@ brawl.state1.prototype= {
         nextLine();
         
         //Skip Written Already.
-        var text2 = game.add.text(600,200,"Press Spacebar or Click to Skip/Play")
+        var text2 = game.add.text(600,200,"Tap Screen to Skip/Play")
 
         //	Font style
         text2.font = 'Arial';
