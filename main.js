@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO)
+var game = new Phaser.Game(800, 600, Phaser.CANVAS)
 
 var player, enemy, platforms, ledge, cursors, wing, shield, spikes, roofSpikes, fire, fallingSpikes;
 var runFastX = false, jumpHigherX = false, stunGunWeapon = false;

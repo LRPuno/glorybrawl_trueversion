@@ -30,7 +30,7 @@ brawl.state2.prototype= {
         pad = game.plugins.add(Phaser.VirtualJoystick);
         stick = pad.addDPad(0, 0, 100, 'dpad');
         stick.scale= 0.5;
-        stick.alignBottomRight(0);
+        stick.alignBottomRight(-10);
 
         
         //Adding Music Functions
@@ -289,46 +289,44 @@ brawl.state2.prototype= {
 
         // Virtual Joystick
         if (stick.isDown)
-        {
-            player.body.velocity.x = 0;
-            player.frame=8;
-
-            if (stick.direction === Phaser.LEFT)
             {
-                player.body.velocity.x = -200;
-                player.animations.play('left');
-
-                if (runFastX) {
-                    player.body.velocity.x = -400;
+                if (stick.direction === Phaser.LEFT)
+                {
+                    player.body.velocity.x = -200;
                     player.animations.play('left');
-                }
-            }
-            else if (stick.direction === Phaser.RIGHT)
-            {
-                player.body.velocity.x = 200;
-                player.animations.play('right');
 
-                if (runFastX) {
-                    player.body.velocity.x = 400;
+                    if (runFastX) {
+                        player.body.velocity.x = -400;
+                        player.animations.play('left');
+                    }
+                }
+                else if (stick.direction === Phaser.RIGHT)
+                {
+                    player.body.velocity.x = 200;
                     player.animations.play('right');
+
+                    if (runFastX) {
+                        player.body.velocity.x = 400;
+                        player.animations.play('right');
+                    }
+                }
+                else if (stick.direction === Phaser.UP && player.body.touching.down && (hitPlatform || hitLedge))
+                {
+                    player.body.velocity.y = -250;
+                if (jumpHigherX) {
+                    player.body.velocity.y = -425;
+                }
+                }
+                else if (stick.direction === Phaser.DOWN)
+                {
+                    player.body.velocity.y = 200;
                 }
             }
-            else if (stick.direction === Phaser.UP && player.body.touching.down && (hitPlatform || hitLedge))
-            {
-                player.body.velocity.y = -250;
-            if (jumpHigherX) {
-                player.body.velocity.y = -425;
-            }
-            }
-            else if (stick.direction === Phaser.DOWN)
-            {
-                player.body.velocity.y = 200;
-            }
-        }
         else
-        {
-            player.body.velocity.x = 0;
-        }
+            {
+                player.body.velocity.x = 0;
+                player.frame=8;
+            }
 
 
     },
