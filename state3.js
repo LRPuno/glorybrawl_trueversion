@@ -5,6 +5,7 @@ brawl.state3.prototype= {
     },
     create: function (){
         
+        stick.destroy();
         game.add.sprite(200,250, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         console.log("state3");
