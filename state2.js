@@ -329,7 +329,8 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = -600;
   }
   else if (ledge.body.touching.up) {
-    ledge.body.velocity.y = 125;
+    ledge.body.velocity.y = 100;
+    ledge.body.velocity.x = 0;
   }
   else if (ledge.body.touching.down) {
     ledge.body.velocity.y=-300;
