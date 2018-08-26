@@ -233,14 +233,6 @@ brawl.state2.prototype= {
         game.physics.arcade.collide(wing, platforms);
         game.physics.arcade.collide(shield, platforms);
         game.physics.arcade.collide(enemy,platforms);
-        
-        //Black Bars
-
-        game.physics.arcade.collide(enemy,black);
-        game.physics.arcade.collide(player,black);
-        game.physics.arcade.collide(ledge,black);
-        game.physics.arcade.collide(platforms,black);
-    
 
 
         //Checks to see if overlap in assets.
@@ -337,7 +329,7 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = -600;
   }
   else if (ledge.body.touching.up) {
-    ledge.body.velocity.y = 100;
+    ledge.body.velocity.y = 125;
   }
   else if (ledge.body.touching.down) {
     ledge.body.velocity.y=-300;
