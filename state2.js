@@ -3,7 +3,7 @@ brawl.state2.prototype= {
     preload: function (){
         game.load.script('joystick', 'assets/phaser-virtual-joystick.min.js');
         game.load.atlas('dpad', 'assets/dpad.png', 'assets/dpad.json');
-        game.load.image('sky', 'assets/sky2.png');
+        game.load.image('sky', 'assets/sky3.png');
         game.load.image('ground', 'assets/platform2.png');
         game.load.image('testGround','assets/platformY.png');
         game.load.image('bullet', 'assets/bullets/bullet206.png');
@@ -13,10 +13,9 @@ brawl.state2.prototype= {
         game.load.image('shield','assets/shield2.png');
         game.load.image('fallingSpike',"assets/newSpikes.png");
         game.load.image('enemy','assets/trumpface.png');
-        game.load.image('bars','assets/black.png');
         game.load.image('invisibleSpikes','assets/invisibleFloorSpikes.png');
-        game.load.spritesheet('dude', 'assets/white.png',47,50,19);
-        game.load.spritesheet('fire','assets/spritefire.png',150,500);
+        game.load.spritesheet('dude', 'assets/white.png',87.5,93.5);
+        game.load.spritesheet('fire','assets/spritefire.png',340,340);
         game.load.audio('musical', ['assets/destination-01.mp3']);
         game.load.audio('smack',['assets/smack-1.mp3']);
         //game.load.spritesheet('secondDude','assets/white.png',47,50,19);
@@ -29,11 +28,16 @@ brawl.state2.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(1000,game.world.centerY, 150, 'dpad');
+        stick = pad.addDPad(0,0, 150, 'dpad');
         stick.scale= 1.0;
-        //stick.alignBottomRight(-20);
+        stick.alignBottomLeft(-20);
 
+        this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
+        this.buttonA.scale=1.5;
+        this.buttonA.alignBottomRight(-20);
+        this.buttonA.onDown.add(this.jumpMechanic, this);
         
+
         //Adding Music Functions
         music = game.add.audio('musical');
         smack = game.add.audio('smack');
@@ -45,14 +49,6 @@ brawl.state2.prototype= {
         
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; //Scales our Game
         game.add.sprite(0, 0, 'sky');   // A simple background for our game
-        
-        //Fake Black Image to hold the controller
-        black = game.add.group();
-        black.enableBody=true;
-        var blackBar=black.create(790,0,'bars');
-        blackBar.body.immovable=true;
-
-        
 
         //GROUND PLATFORM FOR MAP
         platforms = game.add.group(); // The platforms group contains the ground and the 2 ledges we can jump on
@@ -104,78 +100,32 @@ brawl.state2.prototype= {
         //PIT OF FIRE (visual; non functional without Ground spikes)
         fire = game.add.group();
         fire.enableBody=true
-        var newFire=fire.create(300,340,'fire');
-        newFire.body.setSize(0,100);
+
+        for (var i=0;i<12;i++) {
+            var newFire=fire.create(i*100,750,'fire');
+            newFire.animations.add('move');
+            newFire.animations.play('move',5,true);
+        }
+        // Outside Loop To Put a Fire at the Bottom Left
+
+        var newFire=fire.create(-125,750,'fire');
         newFire.animations.add('move');
-        newFire.animations.play('move',4,true);
-        newFire.body.immovable=true;
-
-        var newFireTwo=fire.create(100,340,'fire');
-        newFireTwo.body.setSize(0,100);
-        newFireTwo.animations.add('move');
-        newFireTwo.animations.play('move',4,true);
-        newFireTwo.body.immovable=true;
-
-        var newFireThree=fire.create(0,340,'fire');
-        newFireThree.body.setSize(0,100);
-        newFireThree.animations.add('move');
-        newFireThree.animations.play('move',4,true);
-        newFireThree.body.immovable=true;
-
-        var newFireFour=fire.create(500,340,'fire');
-        newFireFour.body.setSize(0,100);
-        newFireFour.animations.add('move');
-        newFireFour.animations.play('move',4,true);
-        newFireFour.body.immovable=true;
-
-        var newFireFive=fire.create(650,340,'fire');
-        newFireFive.body.setSize(0,100);
-        newFireFive.animations.add('move');
-        newFireFive.animations.play('move',4,true);
-        newFireFive.body.immovable=true;
-
-        var newFireSix=fire.create(400,340,'fire');
-        newFireSix.body.setSize(0,100);
-        newFireSix.animations.add('move');
-        newFireSix.animations.play('move',4,true);
-        newFireSix.body.immovable=true;
-
-        var newFireSeven=fire.create(200,340,'fire');
-        newFireSeven.body.setSize(0,100);
-        newFireSeven.animations.add('move');
-        newFireSeven.animations.play('move',4,true);
-        newFireSeven.body.immovable=true;
-
-        var newFireEight=fire.create(550,340,'fire');
-        newFireEight.body.setSize(0,100);
-        newFireEight.animations.add('move');
-        newFireEight.animations.play('move',4,true);
-        newFireEight.body.immovable=true;
-
-        var newFireNine=fire.create(-10,340,'fire');
-        newFireNine.body.setSize(0,100);
-        newFireNine.animations.add('move');
-        newFireNine.animations.play('move',4,true);
-        newFireNine.body.immovable=true;
+        newFire.animations.play('move',5,true);
+        
         
         // GROUND SPIKES (to give fire damage)
         spikes = game.add.group();
         spikes.enableBody = true;
         spikes.visible=false;
-        var spikesTwo = spikes.create(300, game.world.height -50, 'invisibleSpikes');
-        spikesTwo.body.immovable = true;
+        var spikesOne = spikes.create(0, 800, 'invisibleSpikes');
+        spikesOne.body.immovable = true;
 
-        //Invisible Spikes in the Ground to simulate being squished.
-        var spikesThree=spikes.create(0,game.world.height-50,'invisibleSpikes')
-        spikesThree.body.immovable=true;
-        var spikesFour=spikes.create(515,game.world.height-50,'invisibleSpikes')
-        spikesFour.body.immovable=true;
 
         // ROOF SPIKES
         roofSpikes=game.add.group();
         roofSpikes.enableBody=true;
-        var invertedSpikes=roofSpikes.create(0,game.world.height-600,'invertedSpikes');
-        invertedSpikes.scale.setTo(1,.25);
+        var invertedSpikes=roofSpikes.create(0,game.world.height-950,'invertedSpikes');
+        invertedSpikes.scale.setTo(1,.5);
         invertedSpikes.body.immovable=true;
 
         // Trump Sprite, One outside so a Trump Sprite exists at the beginning of the game.
@@ -200,7 +150,7 @@ brawl.state2.prototype= {
 
         function trumpGenerator () {
             var randomNumber=Math.floor((Math.random() * 700) + 1);
-            var trumpImage=enemy.create(randomNumber,game.world.height-600,'enemy');
+            var trumpImage=enemy.create(randomNumber,game.world.height-1000,'enemy');
             trumpImage.body.bounce.y = .8;// 0.7 + Math.random() * 0.2;
             trumpImage.body.bounce.x = .8;
             trumpImage.body.gravity.y=10;
@@ -227,14 +177,14 @@ brawl.state2.prototype= {
 
             if (randomNumberX===1) {
                 var randomNumber=Math.floor((Math.random() * 700) + 1);
-                var shields = shield.create(randomNumber, game.world.height-600, 'shield');
+                var shields = shield.create(randomNumber, game.world.height-1000, 'shield');
                 shields.body.gravity.y = 300;
                 shields.body.bounce.y = 0.7 + Math.random() * 0.2; //  This just gives each stun a slightly random bounce value
             }
 
             else if (randomNumberX===2) {
                 var randomNumber=Math.floor((Math.random() * 700) + 1);
-                var wings = wing.create(randomNumber, game.world.height-600, 'wing');
+                var wings = wing.create(randomNumber, game.world.height-1000, 'wing');
                 wings.body.gravity.y = 300;
                 wings.body.bounce.y = 0.7 + Math.random() * 0.2;
             }
@@ -247,8 +197,8 @@ brawl.state2.prototype= {
             fallingSpikes.collideWorldBounds=true;
 
             for (var i=0;i<3;i++) {
-            var randomNumber=Math.floor((Math.random() * 700) + 1);
-            var spikeFall = fallingSpikes.create(randomNumber, game.world.height-600, 'fallingSpike');
+            var randomNumber=Math.floor((Math.random() * 900) + 1);
+            var spikeFall = fallingSpikes.create(randomNumber, game.world.height-1000, 'fallingSpike');
             spikeFall.body.gravity.y = 300;
             }
         }
@@ -264,13 +214,16 @@ brawl.state2.prototype= {
             //  Start the timer running - this is important!
             //  It won't start automatically, allowing you to hook it to button events and the like.
         timer.start();
+
+        //
+    
         
         
     },
     update: function (){
             //  Collide the player and the stars with the platforms
-        var hitPlatform = game.physics.arcade.collide(player, platforms,platformConundrum);
-        var hitLedge=game.physics.arcade.collide(player,ledge, platformMover);
+        game.physics.arcade.collide(player, platforms,platformConundrum);
+        game.physics.arcade.collide(player,ledge, platformMover);
         game.physics.arcade.collide(wing, ledge);
         game.physics.arcade.collide(shield, ledge);
         game.physics.arcade.collide(enemy,ledge);
@@ -278,11 +231,14 @@ brawl.state2.prototype= {
         game.physics.arcade.collide(wing, platforms);
         game.physics.arcade.collide(shield, platforms);
         game.physics.arcade.collide(enemy,platforms);
-        //
+        
+        //Black Bars
+
         game.physics.arcade.collide(enemy,black);
         game.physics.arcade.collide(player,black);
         game.physics.arcade.collide(ledge,black);
         game.physics.arcade.collide(platforms,black);
+    
 
 
         //Checks to see if overlap in assets.
@@ -296,9 +252,6 @@ brawl.state2.prototype= {
         
         game.physics.arcade.overlap(wing, spikes, deathTwo, null, this);
         game.physics.arcade.overlap(shield, spikes, deathTwo, null, this);
-
-        game.physics.arcade.overlap(black, wing, deathTwo, null, this);
-        game.physics.arcade.overlap(black, shield, deathTwo, null, this);
         
         game.physics.arcade.overlap(fallingSpikes, ledge, deathTwo, null, this);
         game.physics.arcade.overlap(fallingSpikes, platforms, deathTwo, null, this);
@@ -310,43 +263,40 @@ brawl.state2.prototype= {
             {
                 if (stick.direction === Phaser.LEFT)
                 {
-                    player.body.velocity.x = -200;
+                    player.body.velocity.x = -350;
                     player.animations.play('left');
 
                     if (runFastX) {
-                        player.body.velocity.x = -400;
+                        player.body.velocity.x = -600;
                         player.animations.play('left');
                     }
                 }
                 else if (stick.direction === Phaser.RIGHT)
                 {
-                    player.body.velocity.x = 200;
+                    player.body.velocity.x = 350;
                     player.animations.play('right');
 
                     if (runFastX) {
-                        player.body.velocity.x = 400;
+                        player.body.velocity.x = 600;
                         player.animations.play('right');
                     }
                 }
-                else if (stick.direction === Phaser.UP && player.body.touching.down && (hitPlatform || hitLedge))
-                {
-                    player.body.velocity.y = -250;
-                if (jumpHigherX) {
-                    player.body.velocity.y = -425;
-                }
-                }
-                else if (stick.direction === Phaser.DOWN)
-                {
-                    player.body.velocity.y = 200;
-                }
             }
-        else
-            {
-                player.body.velocity.x = 0;
-                player.frame=8;
-            }
+        else {
+            player.body.velocity.x = 0;
+            player.frame=8;
+        }
 
 
+    },
+
+    jumpMechanic: function () {
+        if (player.body.touching.down) {
+            player.body.velocity.y=-250;
+            if (jumpHigherX) {
+                player.body.velocity.y = -425;
+            }
+        }
     },
 
     render: function () {
