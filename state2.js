@@ -55,10 +55,10 @@ brawl.state2.prototype= {
         platforms.enableBody = true; // We will enable physics for any object that is created in this group
 
         //MAJOR LEDGE (quantity: one)
-        var groundThree = platforms.create(200, 300, 'ground');
-        groundThree.body.velocity.setTo(30,100);
-        groundThree.body.collideWorldBounds=true;
-        groundThree.body.bounce.set(.5);
+        var ground = platforms.create(game.world.centerX, game.world.centerY, 'ground');
+        ground.body.velocity.setTo(50,100);
+        ground.body.collideWorldBounds=true;
+        ground.body.bounce.set(.5);
 
         // MINOR LEDGES (MOVING; Quantity: 8)
         ledge = game.add.group();
@@ -67,30 +67,32 @@ brawl.state2.prototype= {
 
         //Ledges in loop for randomization.
         for (var i=0;i<8;i++) {
-            var randomNumber=Math.floor((Math.random() * 600) + 1);
-            var randomNumber2=Math.floor((Math.random() * 500) + 1);
+            
+            var randomNumber=Math.floor((Math.random() * 1300) + 1);
+            var randomNumber2=Math.floor((Math.random() * 900) + 1);
+
             if (i<4) {
-            var randomNumber3=Math.floor((Math.random() * 60) + 1);
-            var randomNumber4=Math.floor((Math.random() * 60) + 1);
+                var randomNumber3=Math.floor((Math.random() * 400) - 400);
+                var randomNumber4=Math.floor((Math.random() * 300) - 300);
             }
-            else if (i>=4) {
-            var randomNumber3=Math.floor((Math.random() * 120) - 240);
-            var randomNumber4=Math.floor((Math.random() * 60) - 120);
-            }
+
+            var randomNumber3=Math.floor((Math.random() * 400) + 1);
+            var randomNumber4=Math.floor((Math.random() * 300) + 1);
+
             ledges=ledge.create(randomNumber,randomNumber2,'testGround');
             ledges.body.velocity.setTo(randomNumber3,randomNumber4);
             ledges.body.collideWorldBounds=true;
-            ledges.body.bounce.set(.5);
+            ledges.body.bounce.set(.8);
         }
 
         //  Our controls.
         cursors = game.input.keyboard.createCursorKeys();
 
         // PLAYER 1 SETTINGS
-        player = game.add.sprite(250, 250, 'dude');
+        player = game.add.sprite(game.world.centerX+100, game.world.centerY-100, 'dude');
         game.physics.arcade.enable(player); //enables physics for player 1
         player.body.bounce.y = 0;
-        player.body.gravity.y = 200;
+        player.body.gravity.y = 350;
         player.body.collideWorldBounds = true;
 
         // PLAYER 1 - ANIMATIONS
@@ -117,7 +119,7 @@ brawl.state2.prototype= {
         spikes = game.add.group();
         spikes.enableBody = true;
         spikes.visible=false;
-        var spikesOne = spikes.create(0, 800, 'invisibleSpikes');
+        var spikesOne = spikes.create(0, 850, 'invisibleSpikes');
         spikesOne.body.immovable = true;
 
 
@@ -133,8 +135,7 @@ brawl.state2.prototype= {
         enemy=game.add.group();
         enemy.enableBody=true;
         game.physics.arcade.enable(enemy);
-        var randomNumber=Math.floor((Math.random() * 700) + 1);
-        var trumpImage=enemy.create(randomNumber,game.world.height-600,'enemy');
+        var trumpImage=enemy.create(400,game.world.height-600,'enemy');
         trumpImage.body.bounce.y = .8;// 0.7 + Math.random() * 0.2;
         trumpImage.body.bounce.x = .8;
         trumpImage.body.gravity.y=10;
@@ -199,7 +200,7 @@ brawl.state2.prototype= {
             for (var i=0;i<3;i++) {
             var randomNumber=Math.floor((Math.random() * 900) + 1);
             var spikeFall = fallingSpikes.create(randomNumber, game.world.height-1000, 'fallingSpike');
-            spikeFall.body.gravity.y = 300;
+            spikeFall.body.gravity.y = 600;
             }
         }
 
@@ -292,9 +293,9 @@ brawl.state2.prototype= {
 
     jumpMechanic: function () {
         if (player.body.touching.down) {
-            player.body.velocity.y=-250;
+            player.body.velocity.y=-350;
             if (jumpHigherX) {
-                player.body.velocity.y = -425;
+                player.body.velocity.y = -500;
             }
         }
     },
