@@ -58,7 +58,8 @@ brawl.state2.prototype= {
         var ground = platforms.create(game.world.centerX, game.world.centerY, 'ground');
         ground.body.velocity.setTo(50,100);
         ground.body.collideWorldBounds=true;
-        ground.body.bounce.set(.5);
+        ground.body.bounce.set(.7);
+        ground.body.immovable=true;
 
         // MINOR LEDGES (MOVING; Quantity: 8)
         ledge = game.add.group();
@@ -321,19 +322,10 @@ function jumpHigher (player,wing) {
 }
 
 function platformConundrum (player,platforms) {
-    if (platforms.body.touching.left) {
-        platforms.body.velocity.x = 50;
-      }
-      else if (platforms.body.touching.right) {
-        platforms.body.velocity.x = -50;
-      }
-      else if (platforms.body.touching.up) {
+    if (platforms.body.touching.up) {
         platforms.body.velocity.y = -150;
       }
-      else if (platforms.body.touching.down) {
-        platforms.body.velocity.y=-100;
-      }
-      smack.play();
+    smack.play();
 }
 
 //Platfrom Moving Mechanics
@@ -345,7 +337,7 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = -600;
   }
   else if (ledge.body.touching.up) {
-    ledge.body.velocity.y = 150;
+    ledge.body.velocity.y = 100;
   }
   else if (ledge.body.touching.down) {
     ledge.body.velocity.y=-300;
