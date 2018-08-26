@@ -8,6 +8,8 @@ brawl.state3.prototype= {
         //Destroying Buttons
         pad.destroy();
 
+        //Destroy Timers
+
         //Art
         game.add.sprite(200,200, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -30,7 +32,8 @@ brawl.state3.prototype= {
     update: function (){
       if (this.game.input.activePointer.isDown)
       {
-        location.reload();
+        game.state.start('state2',true,true);
+        total=0;
       }
 
     }
