@@ -1,7 +1,7 @@
 var game = new Phaser.Game(1400, 930, Phaser.CANVAS,)
 
 var player, enemy, platforms, ledge, cursors, wing, shield, spikes, roofSpikes, fire, fallingSpikes;
-var runFastX = false, jumpHigherX = false, stunGunWeapon = false;
+var runFastX = false, jumpHigherX = false;
 var timer;
 var smack;
 var music;
@@ -9,7 +9,6 @@ var music;
 
 var pad;
 var stick;
-var black;
 var buttonA;
 
 //Forces the next state of the game with a button that is not coded in phaser.
@@ -23,7 +22,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "You have been selected as a contestant.",
   "The goal is to survive as long as possible.",
-  "Alpha X. Welcome to Glory Brawl.",
+  "Alpha XXX. Welcome to Glory Brawl.",
   "Use the Joystick to Move."
 ];
 
