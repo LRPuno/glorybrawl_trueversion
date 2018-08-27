@@ -22,7 +22,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "You have been selected as a contestant.",
   "The goal is to survive as long as possible.",
-  "Alpha 4X. Welcome to Glory Brawl.",
+  "Alpha 5Xer. Welcome to Glory Brawl.",
   "Use the Joystick to Move."
 ];
 

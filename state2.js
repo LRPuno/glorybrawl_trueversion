@@ -201,7 +201,7 @@ brawl.state2.prototype= {
             for (var i=0;i<3;i++) {
             var randomNumber=Math.floor((Math.random() * 900) + 1);
             var spikeFall = fallingSpikes.create(randomNumber, game.world.height-1000, 'fallingSpike');
-            spikeFall.body.gravity.y = 600;
+            spikeFall.body.gravity.y = 500;
             }
         }
 
@@ -323,10 +323,10 @@ function platformConundrum (player,platforms) {
 //Platfrom Moving Mechanics
 function platformMover (player,ledge) {
   if (ledge.body.touching.left) {
-    ledge.body.velocity.x = 600;
+    ledge.body.velocity.x = 1000;
   }
   else if (ledge.body.touching.right) {
-    ledge.body.velocity.x = -600;
+    ledge.body.velocity.x = -1000;
   }
   else if (ledge.body.touching.up) {
     ledge.body.velocity.y=-500;
@@ -334,7 +334,7 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = 0;
   }
   else if (ledge.body.touching.down) {
-    ledge.body.velocity.y=-300;
+    ledge.body.velocity.y=-1000;
   }
   smack.play();
 }
