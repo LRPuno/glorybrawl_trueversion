@@ -34,6 +34,7 @@ brawl.state3.prototype= {
       {
         game.state.start('state2',true,true);
         total=0;
+        game.sound.remove();
       }
 
     }
