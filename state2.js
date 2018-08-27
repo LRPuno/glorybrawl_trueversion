@@ -341,6 +341,7 @@ function platformMover (player,ledge) {
 //Removing Elements
 function deathOne(victim, killer) {
   victim.kill();
+  game.state.clearCurrentState();
   game.state.start('state3');
 }
 
