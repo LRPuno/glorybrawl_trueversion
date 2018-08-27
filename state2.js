@@ -33,7 +33,7 @@ brawl.state2.prototype= {
         stick.alignBottomLeft(-20);
 
         this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
-        this.buttonA.scale=1.5;
+        this.buttonA.scale=2.0;
         this.buttonA.alignBottomRight(-20);
         this.buttonA.onDown.add(this.jumpMechanic, this);
         
@@ -329,6 +329,7 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = -600;
   }
   else if (ledge.body.touching.up) {
+    ledge.body.velocity.y=-500;
     ledge.body.velocity.y = 100;
     ledge.body.velocity.x = 0;
   }
