@@ -67,7 +67,7 @@ brawl.state2.prototype= {
         game.physics.arcade.enable(ledge)
 
         //Ledges in loop for randomization.
-        for (var i=0;i<8;i++) {
+        for (var i=0;i<5;i++) {
             
             var randomNumber=Math.floor((Math.random() * 1300) + 1);
             var randomNumber2=Math.floor((Math.random() * 900) + 1);
@@ -83,7 +83,7 @@ brawl.state2.prototype= {
             ledges=ledge.create(randomNumber,randomNumber2,'testGround');
             ledges.body.velocity.setTo(randomNumber3,randomNumber4);
             ledges.body.collideWorldBounds=true;
-            ledges.body.bounce.set(.8);
+            ledges.body.bounce.set(.9);
         }
 
         //  Our controls.
@@ -329,7 +329,6 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = -550;
   }
   else if (ledge.body.touching.up) {
-    ledge.body.velocity.y=-500;
     ledge.body.velocity.y = 100;
     ledge.body.velocity.x = 0;
   }
