@@ -8,9 +8,6 @@ brawl.state3.prototype= {
         //Destroying Buttons
         pad.destroy();
 
-        //Destroy Sound
-        game.sound.remove();
-
         //Art
         game.add.sprite(200,200, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -35,6 +32,7 @@ brawl.state3.prototype= {
       {
         game.state.start('state2',true,true);
         total=0;
+        music.destroy();
       }
 
     }
