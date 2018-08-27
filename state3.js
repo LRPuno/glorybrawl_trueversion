@@ -8,7 +8,8 @@ brawl.state3.prototype= {
         //Destroying Buttons
         pad.destroy();
 
-        //Destroy Timers
+        //Destroy Sound
+        game.sound.remove();
 
         //Art
         game.add.sprite(200,200, 'background-three');
@@ -34,7 +35,6 @@ brawl.state3.prototype= {
       {
         game.state.start('state2',true,true);
         total=0;
-        game.sound.remove();
       }
 
     }
