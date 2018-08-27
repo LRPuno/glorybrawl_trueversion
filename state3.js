@@ -9,19 +9,19 @@ brawl.state3.prototype= {
         pad.destroy();
 
         //Art
-        game.add.sprite(200,200, 'background-three');
+        game.add.sprite(0,200, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         console.log("state3");
 
         // Score
 
-        text = game.add.text(300, 240, "You Survived: "+total+" Seconds");
+        text = game.add.text(300, 220, "You Survived: "+total+" Seconds");
         text.anchor.set(0.295);
         text.align = 'center';
 
         //	Font style
         text.font = 'Arial Black';
-        text.fontSize = 20;
+        text.fontSize = 50;
         text.fill= "#000000";
         text.fontWeight = 'bold';
 
