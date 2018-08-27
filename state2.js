@@ -58,7 +58,7 @@ brawl.state2.prototype= {
         var ground = platforms.create(game.world.centerX, game.world.centerY, 'ground');
         ground.body.velocity.setTo(50,100);
         ground.body.collideWorldBounds=true;
-        ground.body.bounce.set(.7);
+        ground.body.bounce.set(1.0);
         ground.body.immovable=true;
 
         // MINOR LEDGES (MOVING; Quantity: 8)
