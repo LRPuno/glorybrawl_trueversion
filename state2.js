@@ -145,7 +145,7 @@ brawl.state2.prototype= {
 
         //Timer for Item and Spike Generation
         
-        game.time.events.repeat(Phaser.Timer.SECOND * 30,2, itemGenerator, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 10,3, itemGenerator, this);
         game.time.events.repeat(Phaser.Timer.SECOND * 7,10000, spikesFalling, this);
         game.time.events.repeat(Phaser.Timer.SECOND * 15,6, trumpGenerator, this);
         
