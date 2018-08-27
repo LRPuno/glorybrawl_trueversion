@@ -323,10 +323,10 @@ function platformConundrum (player,platforms) {
 //Platfrom Moving Mechanics
 function platformMover (player,ledge) {
   if (ledge.body.touching.left) {
-    ledge.body.velocity.x = 1000;
+    ledge.body.velocity.x = 550;
   }
   else if (ledge.body.touching.right) {
-    ledge.body.velocity.x = -1000;
+    ledge.body.velocity.x = -550;
   }
   else if (ledge.body.touching.up) {
     ledge.body.velocity.y=-500;
@@ -334,7 +334,7 @@ function platformMover (player,ledge) {
     ledge.body.velocity.x = 0;
   }
   else if (ledge.body.touching.down) {
-    ledge.body.velocity.y=-1000;
+    ledge.body.velocity.y=-550;
   }
   smack.play();
 }
