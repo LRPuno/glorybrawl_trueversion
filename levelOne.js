@@ -45,7 +45,8 @@ brawl.state3.prototype= {
 
         //Visuals of the Game
         
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; //Scales our Game
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
+        
         game.add.sprite(0, 0, 'sky');   // A simple background for our game
 
         //GROUND PLATFORM FOR MAP

@@ -9,7 +9,7 @@ brawl.state1.prototype= {
         //Trump Background
         game.add.sprite(600,550,'background-one');
         //Scaling
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         //Adding Cool Looking Text
         text = game.add.text(40, 50, '', { font: "50px Arial", fill: "#19de65" });

@@ -42,7 +42,7 @@ brawl.state6.prototype= {
         music.loopFull();
 
         ////////////////////Visuals//////////////////
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.add.sprite(0, 0, 'background');   // A simple background for our game
 
 
