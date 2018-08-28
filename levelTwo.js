@@ -28,11 +28,11 @@ brawl.state6.prototype= {
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
         stick = pad.addDPad(0,0, 150, 'dpad');
-        stick.scale= 1.5;
+        stick.scale= 1.0;
         stick.alignBottomLeft(-20);
 
         this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
-        this.buttonA.scale=2.0;
+        this.buttonA.scale=1.5;
         this.buttonA.alignBottomRight(-20);
         this.buttonA.onDown.add(this.jumpMechanic, this);
 
