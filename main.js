@@ -1,29 +1,62 @@
 var game = new Phaser.Game(1400, 930, Phaser.CANVAS,)
 
-var player, enemy, platforms, ledge, cursors, wing, shield, spikes, roofSpikes, fire, fallingSpikes;
-var runFastX = false, jumpHigherX = false;
-var timer;
+////////////////////////Game States//////////////////////
+game.state.add('mainMenu',brawl.state1);
+game.state.add('ruleSetOne',brawl.state2);
+game.state.add('levelOne',brawl.state3);
+game.state.add('ruleSetTwo',brawl.state5);
+game.state.add('levelTwo',brawl.state6);
+game.state.add('deathState',brawl.state4);
+game.state.start('mainMenu');
+
+////////////////////Variables that Holds Player and controls///////////////
+var player;
+
+/////////// Variables that hold the Sound and Special FX//////////////
 var smack;
 var music;
-// Virtual Joystick
 
+// Global Variables that Holds Sprite/Game Object Properties That Will Be Used Throughout All Levels.
+var platforms;
+var ledge;
+var roofSpikes;
+var fallingSpikes;
+var spikes;
+var enemy;
+var fire;
+
+// Variables that Holds Power Ups Objects (These are cumulative the entire game).
+var wing;
+var shield;
+// Variables that Hold Cumlative Power-Up Booleans
+var runFastX = false;
+var jumpHigherX = false;
+
+// Virtual Joystick
 var pad;
 var stick;
 var buttonA;
 
-//Forces the next state of the game with a button that is not coded in phaser.
-var total = 0;
+//Mechanics Specific for Level One
+var timer;
+var total = 5;
 
+//Mechanics Specific for Level Two
+var wall;
+var door;
 
-//////////////////////////////////////////////////Story///////////////////////////////////
+// Life Mechanic for Entire Game
+var lives=10;
+var ghettoLoopMechanic=10;
+
+//////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "In the future, Donald Trump has seized all power.",
   "To fund his endless wars, Trump creates a game show.",
   "A game show that uses prisoners as contestants.",
-  "You have been selected as a contestant.",
-  "The goal is to survive as long as possible.",
-  "Alpha Origin. Welcome to Glory Brawl.",
-  "Use the Joystick to Move."
+  "If a prisoner survives 5 rounds, they become free.",
+  "You are Prison XJ7, this is your chance for freedom.",
+  "Alpha Genesis. Welcome to Glory Brawl."
 ];
 
 var line = [];
@@ -75,28 +108,71 @@ function nextWord() {
   }
 
 }
-/////////////////////
 
-////////////////////////////////////////////////////////////////GAME STATES////////////////////////////////////////////////////////////////
-game.state.add('state1',brawl.state1);
-game.state.add('state2',brawl.state2);
-game.state.add('state3',brawl.state3);
-game.state.start('state1');
+//Event Handlers 
 
-////////////////////////////////////////////////////////////////PHASER 2 GAME (GLORY_BRAWL)////////////////////////////////////////////////////////////////
 
-/*
-//Changing Game States Where you Press Numbers
-function changeState (i,stateNum) {
-  console.log(i);
-  game.state.start('state'+stateNum);
+function runFaster (player,shield) {
+  runFastX=true;
+  shield.kill();
 }
 
-function addKeyCallback(key,fn,args) {
-  game.input.keyboard.addKey(key).onDown.add(fn,null,null,args);
+function jumpHigher (player,wing) {
+  jumpHigherX=true;
+  wing.kill();
 }
 
-function addChangeStateEventListeners() {
-  addKeyCallback(Phaser.Keyboard.TWO, changeState,2);
+function platformConundrum (player,platforms) {
+  if (platforms.body.touching.up) {
+      platforms.body.velocity.y = -150;
+    }
+  //smack.play();
 }
-*/
+
+//Platfrom Moving Mechanics
+function platformMover (player,ledge) {
+if (ledge.body.touching.left) {
+  ledge.body.velocity.x = 550;
+}
+else if (ledge.body.touching.right) {
+  ledge.body.velocity.x = -550;
+}
+else if (ledge.body.touching.up) {
+  ledge.body.velocity.y = 100;
+  ledge.body.velocity.x = 0;
+}
+else if (ledge.body.touching.down) {
+  ledge.body.velocity.y=-550;
+}
+  //smack.play();
+}
+
+// Platform Moving Mechanics Level Two
+function returnWall (platforms,wall) {
+  platforms.body.velocity.setTo(-250,0);
+}
+
+//////////////////Game States/////////////////////
+
+function levelTwoWin (player,door) {
+  ghettoLoopMechanic--;
+  game.state.start('mainMenu');
+}
+
+//Deathgame State
+function deathOne(victim, killer) {
+  victim.kill();
+  game.state.start('deathState');
+}
+
+function deathTwo(victim,killer) {
+  victim.kill();
+}
+
+//Timer Elements
+function updateCounter() {
+  total--;
+}
+
+
+
