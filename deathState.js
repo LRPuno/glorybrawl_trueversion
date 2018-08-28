@@ -13,7 +13,7 @@ brawl.state4.prototype= {
 
         //Art
         game.add.sprite(0,200, 'background-three');
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         console.log("state3");
 
         text = game.add.text(300, 220, "You Have "+lives+" Lives Left");

@@ -4,7 +4,7 @@ brawl.state2.prototype= {
         game.load.image('background', 'assets/instructions.png');
     },
     create: function (){
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.add.sprite(0, 0, 'background');   // A simple background for our game
         text = game.add.text(350, 100, "Rules are simple. Survive.\n"+"Controls on the Bottom")
         text.align = 'center';
