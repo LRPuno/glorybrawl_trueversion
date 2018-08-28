@@ -39,7 +39,7 @@ var buttonA;
 
 //Mechanics Specific for Level One
 var timer;
-var total = 5;
+var total = 30;
 
 //Mechanics Specific for Level Two
 var wall;
@@ -56,7 +56,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "If a prisoner survives 5 rounds, they become free.",
   "You are Prison XJ7, this is your chance for freedom.",
-  "Alpha Genesis. Welcome to Glory Brawl."
+  "Alpha Washu. Welcome to Glory Brawl."
 ];
 
 var line = [];
@@ -156,7 +156,7 @@ function returnWall (platforms,wall) {
 
 function levelTwoWin (player,door) {
   ghettoLoopMechanic--;
-  game.state.start('mainMenu');
+  location.reload();
 }
 
 //Deathgame State
