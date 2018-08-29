@@ -21,7 +21,7 @@ brawl.state6.prototype= {
     create: function (){
          //GENERAL MAP SETTINGS
         game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
-
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
@@ -41,7 +41,6 @@ brawl.state6.prototype= {
         */
 
         ////////////////////Visuals//////////////////
-        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.add.sprite(0, 0, 'background');   // A simple background for our game
 
 

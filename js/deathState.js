@@ -5,14 +5,15 @@ brawl.state4.prototype= {
     },
     create: function (){
 
+        //Remove Life Function
+        lives--;
+        
+        //
         //Refresh if You Lose
         if (lives===0) {
             location.reload();
         }
 
-        //Remove Life Function
-        lives--;
-        
         //Destroying Buttons
         pad.destroy();
 

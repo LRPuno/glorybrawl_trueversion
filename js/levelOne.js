@@ -20,7 +20,7 @@ brawl.state3.prototype= {
 
         //GENERAL MAP SETTINGS
         game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
-
+        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
@@ -32,7 +32,6 @@ brawl.state3.prototype= {
         this.buttonA.alignBottomRight(-20);
         this.buttonA.onDown.add(this.jumpMechanic, this);
         
-
         //Adding Music Functions
         music = game.add.audio('musical');
 
@@ -40,8 +39,6 @@ brawl.state3.prototype= {
         music.loopFull();
 
         //Visuals of the Game
-        
-        game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
         
         game.add.sprite(0, 0, 'sky');   // A simple background for our game
 
