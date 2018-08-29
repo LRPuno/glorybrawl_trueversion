@@ -35,7 +35,6 @@ brawl.state3.prototype= {
 
         //Adding Music Functions
         music = game.add.audio('musical');
-        smack = game.add.audio('smack');
 
         //Background music entire game that loops.
         music.loopFull();
