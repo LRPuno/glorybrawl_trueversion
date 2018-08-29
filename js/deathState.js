@@ -11,6 +11,14 @@ brawl.state4.prototype= {
         //Destroying Buttons
         pad.destroy();
 
+        //
+        if (ghettoLoopMechanic===9) {
+            game.state.remove('levelOne');
+        }
+        else if (ghettoLoopMechanic===8) {
+            game.state.remove('levelTwo');
+        }
+
         //Art
         game.add.sprite(0,200, 'background-three');
         game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
