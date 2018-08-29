@@ -78,7 +78,7 @@ brawl.state3.prototype= {
                 var randomNumber4=Math.floor((Math.random() * 400) + 1);
             }
 
-            ledges=ledge.create(randomNumber,randomNumber2,'testGround');
+            var ledges=ledge.create(randomNumber,randomNumber2,'testGround');
             ledges.body.velocity.setTo(randomNumber3,randomNumber4);
             ledges.body.collideWorldBounds=true;
             ledges.body.bounce.set(.90);
