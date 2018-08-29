@@ -213,12 +213,11 @@ brawl.state3.prototype= {
             timer.destroy();
             music.destroy();
             pad.destroy();
-            this.state=null;
             game.state.start('ruleSetTwo');
             ghettoLoopMechanic--;
         }
 
-        game.time.events.repeat(Phaser.Timer.SECOND * 5,1, destroyTimer, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 30,1, destroyTimer, this);
 
 
     },

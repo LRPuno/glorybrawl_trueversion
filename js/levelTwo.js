@@ -198,7 +198,7 @@ brawl.state6.prototype= {
 
         //Timer Events for Traps and Items
         game.time.events.repeat(Phaser.Timer.SECOND * 10,3, itemGenerator, this);
-        game.time.events.repeat(Phaser.Timer.SECOND * 6,10000, spikesFalling, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 6,50, spikesFalling, this);
 
     },
     update: function (){
