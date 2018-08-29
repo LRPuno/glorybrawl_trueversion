@@ -22,5 +22,6 @@ brawl.state2.prototype= {
         }
     }
     
+    
 };
 

@@ -291,9 +291,7 @@ brawl.state3.prototype= {
 
     render: function () {
         game.debug.text('Survived For: ' + total, 32, 64);
-    }
-    
-    
+    }   
     
 };
 

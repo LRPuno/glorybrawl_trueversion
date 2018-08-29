@@ -20,22 +20,9 @@ brawl.state5.prototype= {
         if (this.game.input.activePointer.isDown)
         {
           //Setting Everything Back to Null.
-          player=null;
-          smack=null;
-          music=null;
-          platforms=null;
-          ledge=null;
-          roofSpikes=null;
-          fallingSpikes=null;
-          spikes=null;
-          enemy=null;
-          fire=null;
-          wing=null;
-          pad=null;
-          stick=null;
-          buttonA=null;
-
-          game.state.start('levelTwo',true,true);
+          game.state.start('levelTwo');
         }
-    }
+    },
+
+    
 };
