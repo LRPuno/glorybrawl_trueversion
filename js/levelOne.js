@@ -59,7 +59,7 @@ brawl.state3.prototype= {
         game.physics.arcade.enable(ledge)
 
         //Ledges in loop for randomization.
-        for (var i=0;i<6;i++) {
+        for (var i=0;i<4;i++) {
             
             var randomNumber=Math.floor((Math.random() * 1399) + 1);
             var randomNumber2=Math.floor((Math.random() * 900) + 1);
@@ -207,7 +207,6 @@ brawl.state3.prototype= {
 
         function destroyTimer () {
             timer.destroy();
-            music.destroy();
             pad.destroy();
             game.state.start('ruleSetTwo');
         }
