@@ -14,7 +14,7 @@ brawl.state3.prototype= {
         game.load.image('invisibleSpikes','assets/invisibleFloorSpikes.png');
         game.load.spritesheet('dude', 'assets/white.png',87.5,93.5);
         game.load.spritesheet('fire','assets/spritefire.png',340,340);
-        game.load.audio('musical', ['assets/destination-01.mp3']);
+        //game.load.audio('musical', ['assets/destination-01.mp3']);
     },
     create: function (){
 
@@ -33,10 +33,10 @@ brawl.state3.prototype= {
         this.buttonA.onDown.add(this.jumpMechanic, this);
         
         //Adding Music Functions
-        music = game.add.audio('musical');
+        //music = game.add.audio('musical');
 
         //Background music entire game that loops.
-        music.loopFull();
+        //music.loopFull();
 
         //Visuals of the Game
         
@@ -212,7 +212,7 @@ brawl.state3.prototype= {
             game.state.start('ruleSetTwo');
         }
 
-        game.time.events.repeat(Phaser.Timer.SECOND * 2,1, destroyTimer, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 30,1, destroyTimer, this);
 
 
     },
@@ -282,10 +282,6 @@ brawl.state3.prototype= {
             }
         }
     },
-
-    render: function () {
-        game.debug.text('Survived For: ' + total, 32, 64);
-    }   
     
 };
 

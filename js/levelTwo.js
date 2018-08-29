@@ -16,7 +16,7 @@ brawl.state6.prototype= {
         game.load.image('door','assets/door.png');
         game.load.spritesheet('dude', 'assets/white.png',87.5,93.5);
         game.load.spritesheet('fire','assets/spritefire.png',340,340);
-        game.load.audio('musical', ['assets/combat.mp3']);
+        //game.load.audio('musical', ['assets/combat.mp3']);
     },
     create: function (){
          //GENERAL MAP SETTINGS
