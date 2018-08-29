@@ -28,9 +28,11 @@ brawl.state1.prototype= {
     update: function (){
        if (this.game.input.activePointer.isDown)
       {
+        this.state=null;
         game.state.start('ruleSetOne');
       }
       if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+          this.state=null;
           game.state.start('levelTwo');
       }
     }

@@ -36,12 +36,14 @@ brawl.state4.prototype= {
       if (this.game.input.activePointer.isDown)
       {
         if (ghettoLoopMechanic===10) {
+            this.state=null;
             game.state.start('levelOne',true,true);
             total=30;
             music.destroy();
         }
 
         else if (ghettoLoopMechanic===9) {
+            this.state=null;
             game.state.start('levelTwo',true,true);
             music.destroy();
         }
