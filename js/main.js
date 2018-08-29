@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 930, Phaser.CANVAS,)
+var game = new Phaser.Game(1400, 930, Phaser.AUTO);
 
 ////////////////////////Game States//////////////////////
 game.state.add('mainMenu',brawl.state1);
