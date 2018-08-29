@@ -26,9 +26,8 @@ brawl.state3.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(0,0, 150, 'dpad');
+        stick = pad.addDPad(290,780, 150, 'dpad');
         stick.scale= 1.5;
-        stick.alignBottomLeft(-20);
 
         this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
         this.buttonA.scale=2.0;
@@ -223,11 +222,6 @@ brawl.state3.prototype= {
 
         game.time.events.repeat(Phaser.Timer.SECOND * 30,1, destroyTimer, this);
 
-        /*
-        if (lives===0) {
-            location.reload();
-        }
-        */
 
     },
     update: function (){

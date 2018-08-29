@@ -31,6 +31,9 @@ brawl.state5.prototype= {
           enemy=null;
           fire=null;
           wing=null;
+          pad=null;
+          stick=null;
+          buttonA=null;
 
           game.state.start('levelTwo',true,true);
         }
