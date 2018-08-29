@@ -46,12 +46,14 @@ brawl.state3.prototype= {
         platforms = game.add.group(); // The platforms group contains the ground and the 2 ledges we can jump on
         platforms.enableBody = true; // We will enable physics for any object that is created in this group
 
-        //MAJOR LEDGE (quantity: one)
-        var ground = platforms.create(game.world.centerX, game.world.centerY, 'ground');
-        ground.body.velocity.setTo(50,100);
-        ground.body.collideWorldBounds=true;
-        ground.body.bounce.set(1.0);
-        ground.body.immovable=true;
+        //MAJOR LEDGE
+        for (var i=0;i<2;i++) {
+            var ground = platforms.create(game.world.centerX, game.world.centerY, 'ground');
+            ground.body.velocity.setTo(50,100);
+            ground.body.collideWorldBounds=true;
+            ground.body.bounce.set(1.0);
+            ground.body.immovable=true;
+        }
 
         // MINOR LEDGES (MOVING; Quantity: 8)
         ledge = game.add.group();

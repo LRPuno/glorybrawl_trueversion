@@ -54,7 +54,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "If a prisoner survives 5 rounds, they become free.",
   "You are Prison XJ7, this is your chance for freedom.",
-  "LASTONEFORREAL. Welcome to Glory Brawl."
+  "Version Leap 1.7. Welcome to Glory Brawl."
 ];
 
 var line = [];
