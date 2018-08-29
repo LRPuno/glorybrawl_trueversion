@@ -13,7 +13,8 @@ game.state.start('mainMenu');
 var player;
 
 /////////// Variables that hold the Sound and Special FX//////////////
-var music;
+
+//var music;
 
 // Global Variables that Holds Sprite/Game Object Properties That Will Be Used Throughout All Levels.
 var platforms;
@@ -36,9 +37,7 @@ var pad;
 var stick;
 var buttonA;
 
-//Mechanics Specific for Level One
-var timer;
-var total = 30;
+//Mechanics Specific for Level One (Timer)
 
 //Mechanics Specific for Level Two
 var wall;
@@ -55,7 +54,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "If a prisoner survives 5 rounds, they become free.",
   "You are Prison XJ7, this is your chance for freedom.",
-  "Reduce. Welcome to Glory Brawl."
+  "Reduce and Win. Welcome to Glory Brawl."
 ];
 
 var line = [];
@@ -168,9 +167,7 @@ function deathTwo(victim,killer) {
 }
 
 //Timer Elements
-function updateCounter() {
-  total--;
-}
+
 
 
 

@@ -193,20 +193,7 @@ brawl.state3.prototype= {
             }
         }
 
-        //Timer to Keep Track of Score//  Create our Timer
-
-        
-        timer = game.time.create(false);
-
-            //  Set a TimerEvent to occur after 2 seconds
-        timer.loop(1000, updateCounter, this);
-
-            //  Start the timer running - this is important!
-            //  It won't start automatically, allowing you to hook it to button events and the like.
-        timer.start();
-
         function destroyTimer () {
-            timer.destroy();
             pad.destroy();
             game.state.start('ruleSetTwo');
         }
