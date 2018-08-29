@@ -134,8 +134,8 @@ brawl.state3.prototype= {
         //Timer for Item and Spike Generation
         
         game.time.events.repeat(Phaser.Timer.SECOND * 10,3, itemGenerator, this);
-        game.time.events.repeat(Phaser.Timer.SECOND * 7,60, spikesFalling, this);
-        game.time.events.repeat(Phaser.Timer.SECOND * 10,3, trumpGenerator, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 5,6, spikesFalling, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 7,3, trumpGenerator, this);
         
 
         function trumpGenerator () {

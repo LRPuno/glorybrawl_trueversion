@@ -54,7 +54,7 @@ var content = [
   "A game show that uses prisoners as contestants.",
   "If a prisoner survives 5 rounds, they become free.",
   "You are Prison XJ7, this is your chance for freedom.",
-  "Cutting the Fat. Welcome to Glory Brawl."
+  "Making it Better Everytime. Welcome to Glory Brawl."
 ];
 
 var line = [];
