@@ -28,8 +28,7 @@ brawl.state1.prototype= {
     update: function (){
        if (this.game.input.activePointer.isDown)
       {
-        //game.state.start('ruleSetOne');
-        game.state.start('levelTwo');
+        game.state.start('ruleSetOne');
       }
     }
 };
