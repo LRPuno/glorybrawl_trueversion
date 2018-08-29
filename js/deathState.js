@@ -5,6 +5,11 @@ brawl.state4.prototype= {
     },
     create: function (){
 
+        //Refresh if You Lose
+        if (lives===0) {
+            location.reload();
+        }
+
         //Remove Life Function
         lives--;
         
@@ -26,9 +31,6 @@ brawl.state4.prototype= {
         text.fontWeight = 'bold';
 
         //Restart Game When You Run out of Lives
-        if (lives===0) {
-            location.reload();
-        }
 
     },
     update: function (){
@@ -41,7 +43,7 @@ brawl.state4.prototype= {
         }
 
         else if (ghettoLoopMechanic===9) {
-            music.destroy();
+            //music.destroy();
             game.state.start('levelTwo',true,true);
         }
       }

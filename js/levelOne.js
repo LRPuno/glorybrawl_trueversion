@@ -97,7 +97,6 @@ brawl.state3.prototype= {
 
         //PIT OF FIRE (visual; non functional without Ground spikes)
         fire = game.add.group();
-        fire.enableBody=true
 
         for (var i=0;i<12;i++) {
             var newFire=fire.create(i*100,750,'fire');
@@ -214,7 +213,6 @@ brawl.state3.prototype= {
             music.destroy();
             pad.destroy();
             game.state.start('ruleSetTwo');
-            ghettoLoopMechanic--;
         }
 
         game.time.events.repeat(Phaser.Timer.SECOND * 2,1, destroyTimer, this);

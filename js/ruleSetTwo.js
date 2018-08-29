@@ -4,6 +4,7 @@ brawl.state5.prototype= {
         game.load.image('background-one', 'assets/trumpFirstBackground.jpg');
     },
     create: function (){
+        ghettoLoopMechanic--;
         game.state.remove('levelOne');
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.add.sprite(0, 0, 'background-one');   // A simple background for our game

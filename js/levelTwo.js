@@ -3,7 +3,7 @@ brawl.state6.prototype= {
     preload: function (){
         game.load.script('joystick', 'js/phaser-virtual-joystick.min.js');
         game.load.atlas('dpad', 'assets/dpad.png', 'js/dpad.json');
-        game.load.image('background', 'assets/level2Background.png');
+        game.load.image('background', 'assets/sky3.png');
         game.load.image('wing','assets/wings.png');
         game.load.image('shield','assets/shield2.png');
         game.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
@@ -19,8 +19,6 @@ brawl.state6.prototype= {
         game.load.audio('musical', ['assets/combat.mp3']);
     },
     create: function (){
-
-        console.log('stage4');
          //GENERAL MAP SETTINGS
         game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
 
@@ -35,10 +33,12 @@ brawl.state6.prototype= {
         this.buttonA.alignBottomRight(-20);
         this.buttonA.onDown.add(this.jumpMechanic, this);
 
+        /*
         music = game.add.audio('musical');
 
         //Background music entire game that loops.
         music.loopFull();
+        */
 
         ////////////////////Visuals//////////////////
         game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -119,7 +119,6 @@ brawl.state6.prototype= {
 
         //PIT OF FIRE (visual; non functional without Ground spikes)
         fire = game.add.group();
-        fire.enableBody=true
 
         for (var i=0;i<12;i++) {
             var newFire=fire.create(i*100,750,'fire');
