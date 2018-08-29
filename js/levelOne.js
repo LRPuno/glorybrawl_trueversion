@@ -217,7 +217,7 @@ brawl.state3.prototype= {
             ghettoLoopMechanic--;
         }
 
-        game.time.events.repeat(Phaser.Timer.SECOND * 30,1, destroyTimer, this);
+        game.time.events.repeat(Phaser.Timer.SECOND * 2,1, destroyTimer, this);
 
 
     },
