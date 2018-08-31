@@ -14,7 +14,6 @@ brawl.state3.prototype= {
         game.load.image('invisibleSpikes','assets/invisibleFloorSpikes.png');
         game.load.spritesheet('dude', 'assets/white.png',87.5,93.5);
         game.load.spritesheet('fire','assets/spritefire.png',340,340);
-        //game.load.audio('musical', ['assets/destination-01.mp3']);
     },
     create: function (){
 
@@ -24,19 +23,15 @@ brawl.state3.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(290,780, 150, 'dpad');
+        stick = pad.addDPad(0,0, 150, 'dpad');
         stick.scale= 1.5;
+        stick.alignBottomLeft(-40);
 
         this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
         this.buttonA.scale=2.0;
-        this.buttonA.alignBottomRight(-20);
+        this.buttonA.alignBottomRight(-50);
         this.buttonA.onDown.add(this.jumpMechanic, this);
         
-        //Adding Music Functions
-        //music = game.add.audio('musical');
-
-        //Background music entire game that loops.
-        //music.loopFull();
 
         //Visuals of the Game
         

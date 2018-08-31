@@ -16,7 +16,6 @@ brawl.state6.prototype= {
         game.load.image('door','assets/door.png');
         game.load.spritesheet('dude', 'assets/white.png',87.5,93.5);
         game.load.spritesheet('fire','assets/spritefire.png',340,340);
-        //game.load.audio('musical', ['assets/combat.mp3']);
     },
     create: function (){
          //GENERAL MAP SETTINGS
@@ -25,13 +24,15 @@ brawl.state6.prototype= {
         // Virtual Joystick
 
         pad = game.plugins.add(Phaser.VirtualJoystick);
-        stick = pad.addDPad(290,780, 150, 'dpad');
+        stick = pad.addDPad(0,0, 150, 'dpad');
         stick.scale= 1.5;
+        stick.alignBottomLeft(-40);
 
         this.buttonA = pad.addButton(500, 520, 'dpad', 'button1-up', 'button1-down');
         this.buttonA.scale=2.0;
-        this.buttonA.alignBottomRight(-20);
+        this.buttonA.alignBottomRight(-50);
         this.buttonA.onDown.add(this.jumpMechanic, this);
+        
 
         /*
         music = game.add.audio('musical');
